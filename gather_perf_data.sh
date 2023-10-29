@@ -65,7 +65,7 @@ for config in "${plugin_configs[@]}"; do
             taskset_pid=$!
             
             # Run perf stat at the same time
-            perf stat -D 20000 -I 3000 -C 9,10,11,12 -o "perf_${output_suffix}_${event}" -e "$event" --interval-count 15 
+            perf stat -D 20000 -I 3000 -C 9,10,11,12 -o "perf_config_${output_suffix}_event_${event}" -e "$event" --interval-count 15 
             
             # Wait for taskset to complete
             wait "$taskset_pid"
